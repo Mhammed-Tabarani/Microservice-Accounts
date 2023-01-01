@@ -1,18 +1,13 @@
-package org.sid.Account_service.entities;
+package org.sid.Account_service.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.Date;
 
-@Entity
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
-public class Passenger {
-    @Id
-    @NonNull
-    private String id;
+@Data @NoArgsConstructor @AllArgsConstructor
+public class PassengerDTO {
     private String publicId;
     private String firstName;
     private String lastName;
@@ -21,4 +16,5 @@ public class Passenger {
     private String email;
     private String phoneNumber;
     private String cin;
+
 }

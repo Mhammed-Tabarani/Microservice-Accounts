@@ -23,18 +23,15 @@ public class AccountServiceApplication {
 	CommandLineRunner start(PassengerRepository passengerRepository , DriverRepository driverRepository){
 		return args -> {
 
-			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),new Date(),"Mhammed",19,"mhammed.tabarani@gmail.com","0777180558"));
-			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),new Date(),"Siham",19,"SIHAM.SIHAM@gmail.com","0777180558"));
-			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),new Date(),"Aya",19,"AYA.AYA@gmail.com","0777180558"));
-			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),new Date(),"ALI",19,"ALI.ALI@gmail.com","0777180558"));
-			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),new Date(),"hamid",19,"hamid.hamid@gmail.com","0777180558"));
+			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),UUID.randomUUID().toString(),"Mhammed","Tabarani","mhammed.tabarani@gmail.com",new Date(),"ooooooooooooooooooooooooooooooooo","0000000000","WA28888"));
+			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),UUID.randomUUID().toString(),"Ayyoub","Ayyoub","ayyoub@gmail.com",new Date(),"aaaaaaaaaaaaaaaaaaaaaaaaaaa","1111111111","WA28888"));
+			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),UUID.randomUUID().toString(),"Amine","Amine","amine@gmail.com",new Date(),"hhhhhhhhhhhhhhhhhhhhhhhh","22222222222","WA28888"));
+			passengerRepository.save(new Passenger(UUID.randomUUID().toString(),UUID.randomUUID().toString(),"raziq","raziq","raziq@gmail.com",new Date(),"zzzzzzzzzzzzzzzzzzzzzzzzzz","3333333333","WA28888"));
 
-			driverRepository.save(new Driver(UUID.randomUUID().toString(),new Date(),"Mhammed",19,"mhammed.tabarani@gmail.com","0777180558",UUID.randomUUID().toString()));
-			driverRepository.save(new Driver(UUID.randomUUID().toString(),new Date(),"Siham",19,"SIHAM.SIHAM@gmail.com","0777180558",UUID.randomUUID().toString()));
-			driverRepository.save(new Driver(UUID.randomUUID().toString(),new Date(),"Aya",19,"AYA.AYA@gmail.com","0777180558",UUID.randomUUID().toString()));
-			driverRepository.save(new Driver(UUID.randomUUID().toString(),new Date(),"ALI",19,"ALI.ALI@gmail.com","0777180558",UUID.randomUUID().toString()));
-			driverRepository.save(new Driver(UUID.randomUUID().toString(),new Date(),"hamid",19,"hamid.hamid@gmail.com","0777180558",UUID.randomUUID().toString()));
-
+			driverRepository.save(new Driver(UUID.randomUUID().toString(),UUID.randomUUID().toString(),"Mhammed","Tabarani","mhammed.tabarani@gmail.com",new Date(),"ooooooooooooooooooooooooooooooooo","0000000000","WA28888","zzzzzzzzzzzzzzzzzzz"));
+			driverRepository.save(new Driver(UUID.randomUUID().toString(),UUID.randomUUID().toString(),"Ayyoub","Ayyoub","ayyoub@gmail.com",new Date(),"aaaaaaaaaaaaaaaaaaaaaaaaaaa","1111111111","WA28888","zzzzzzzzzzzzzzzzzzz"));
+			driverRepository.save(new Driver(UUID.randomUUID().toString(),UUID.randomUUID().toString(),"Amine","Amine","amine@gmail.com",new Date(),"hhhhhhhhhhhhhhhhhhhhhhhh","22222222222","WA28888","zzzzzzzzzzzzzzzzzzz"));
+			driverRepository.save(new Driver(UUID.randomUUID().toString(),UUID.randomUUID().toString(),"raziq","raziq","raziq@gmail.com",new Date(),"zzzzzzzzzzzzzzzzzzzzzzzzzz","3333333333","WA28888","zzzzzzzzzzzzzzzzzzz"));
 
 		};
 	}

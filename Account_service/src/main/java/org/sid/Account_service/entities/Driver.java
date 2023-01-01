@@ -16,10 +16,13 @@ public class Driver {
     @Id
     @NonNull
     private String id;
-    private Date createdAt;
-    private String name;
-    private int ages;
+    private String publicId;
+    private String firstName;
+    private String lastName;
+    private String profilePicture;
+    private Date birthday;
     private String email;
     private String phoneNumber;
+    private String cin;
     private String licenseNumber;
 }
