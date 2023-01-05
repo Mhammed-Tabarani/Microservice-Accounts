@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DriverRepository extends JpaRepository<Driver,String> {
     Driver findDriverByEmail(String email);
+
+    Driver findPDriverByPublicId(String publicId);
 }

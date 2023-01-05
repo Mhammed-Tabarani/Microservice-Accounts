@@ -1,19 +1,13 @@
-package org.sid.Account_service.entities;
+package org.sid.Account_service.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.Date;
-
-@Entity
 @Data @AllArgsConstructor @NoArgsConstructor @Builder
-public class Driver {
-    @Id
-    @NonNull
-    private String id;
-    private String publicId;
+public class DriverRequestDTO {
     private String firstName;
     private String lastName;
     private String profilePicture;

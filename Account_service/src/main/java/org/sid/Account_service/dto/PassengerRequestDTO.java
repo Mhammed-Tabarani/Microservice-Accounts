@@ -5,10 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-
 @Data @NoArgsConstructor @AllArgsConstructor
-public class DriverDTO {
-    private String publicId;
+public class PassengerRequestDTO {
     private String firstName;
     private String lastName;
     private String profilePicture;
@@ -17,4 +15,5 @@ public class DriverDTO {
     private String phoneNumber;
     private String cin;
     private String licenseNumber;
+    private String password;
 }

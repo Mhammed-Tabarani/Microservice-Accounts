@@ -1,9 +1,10 @@
 package org.sid.Account_service.web;
 
-import lombok.AllArgsConstructor;
-import org.sid.Account_service.entities.Driver;
+import org.sid.Account_service.dto.PassengerRequestDTO;
+import org.sid.Account_service.dto.PassengerResponseDTO;
 import org.sid.Account_service.entities.Passenger;
 import org.sid.Account_service.repositories.PassengerRepository;
+import org.sid.Account_service.service.PassengerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,35 +12,43 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@AllArgsConstructor
+
 public class PassengerRestController {
+    @Autowired
     private PassengerRepository passengerRepository;
+    private PassengerService passengerService;
+
+    public PassengerRestController(PassengerService passengerService) {
+        this.passengerService = passengerService;
+    }
 
     @GetMapping("/passengers")
-    public List<Passenger> drivers(){return passengerRepository.findAll();}
+    public List<PassengerResponseDTO> drivers(){return passengerService.getAllPassengers();}
 
     @GetMapping("/passengers/{id}")
-    public Passenger driver(@PathVariable String id){
-        return passengerRepository.findById(id)
-                .orElseThrow(()->new RuntimeException(String.format("Account %s not found",id)));
+    public PassengerResponseDTO driver(@PathVariable String id){
+        return passengerService.getPassengerByPublicId(id);
     }
     @PostMapping("/passengers")
-    public Passenger save(@RequestBody Passenger passenger){
-        if(passenger.getId()==null) passenger.setId(UUID.randomUUID().toString());
-        return passengerRepository.save(passenger);
+    public PassengerResponseDTO save(@RequestBody PassengerRequestDTO passengerRequestDTO){
+        return passengerService.addPassenger(passengerRequestDTO);
     }
 
-    @PutMapping("/drivers/{id}")
-    public Passenger update(@PathVariable String id , Passenger passenger){
-        Passenger passenger1= passengerRepository.findById(id).orElseThrow(()->new RuntimeException(String.format("Account %s bot found",id)));
-        return passengerRepository.save(passenger);
+    @PutMapping("/passengers/{id}")
+    public PassengerResponseDTO update(@PathVariable String id , PassengerRequestDTO passengerRequestDTO){
+        return passengerService.updatePassenger(id,passengerRequestDTO);
     }
-    @DeleteMapping("/drivers/{id}")
+    @DeleteMapping("/passengers/{id}")
     public void delete(@PathVariable String id){passengerRepository.deleteById(id);}
     @GetMapping("/Passengers/{email}")
-    public Passenger getbyEmail(@PathVariable String email){
+    public PassengerResponseDTO getbyEmail(@PathVariable String email){
 
-        return passengerRepository.findPassengerByEmail(email);
+        return passengerService.getPassengerByEmail(email);
+    }
+    @GetMapping("/passengers/{publicId}")
+    public PassengerResponseDTO getbyPublicId(@PathVariable String publicId){
+
+        return passengerService.getPassengerByPublicId(publicId);
     }
 
 }

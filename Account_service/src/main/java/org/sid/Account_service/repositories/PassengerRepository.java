@@ -6,4 +6,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 public interface PassengerRepository extends JpaRepository<Passenger,String> {
     Passenger findPassengerByEmail (String email);
+    Passenger findPassengerByPublicId(String publicId);
 }
